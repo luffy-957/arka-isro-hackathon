@@ -10,7 +10,7 @@ def loadfiles(DATA_PATH):
     for file in sorted(glob.glob(DATA_PATH)):
         with CDF(file) as cdf:
             try:
-                time = np.array([dt.datetime.fromtimestamp(e.timestamp(), dt.timezone.utc) for e in cdf['epoch_for_cdf_mod'][:]])
+                time = np.array([dt.datetime.fromtimestamp(e.timestamp(), dt.UTC) for e in cdf['epoch_for_cdf_mod'][:]])
                 energy = np.array(cdf['energy_center_mod'][:])
                 flux = np.array(cdf['integrated_flux_mod'][:])
             except KeyError as e:
