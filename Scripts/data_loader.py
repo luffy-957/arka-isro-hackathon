@@ -46,7 +46,6 @@ def load_blk_data():
     return df
 
 def load_th1_data():
-    # Load TH1 data (time, energy, flux)
     time, energy, flux = TH_parameters.loadfiles('../data/TH1/*cdf')
 
     energy = np.array(energy)
